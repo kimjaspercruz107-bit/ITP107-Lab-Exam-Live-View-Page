@@ -47,6 +47,22 @@ Tests use a mock HTTP client and temporary real Hive storage. They cover success
 
 Manual persistence check: save a post, add a note, close and reopen the app, and open Favorites. Remove it, reopen again, and confirm it stays removed.
 
+## Publish to GitHub Pages
+
+[Open the live app](https://kimjaspercruz107-bit.github.io/ITP107-Lab-Exam-Live-View-Page/).
+
+The repository publishes the `docs` folder from the `main` branch. To update the website, run these commands from this project folder in PowerShell:
+
+```powershell
+flutter build web --release --base-href "/ITP107-Lab-Exam-Live-View-Page/" --output docs
+New-Item -ItemType File -Path "docs\.nojekyll" -Force
+git add docs
+git commit -m "Update web app"
+git push origin main
+```
+
+Wait for **pages build and deployment** to succeed in the repository's Actions tab, then refresh the live page.
+
 ## References
 
 - [JSONPlaceholder API](https://jsonplaceholder.typicode.com/)
